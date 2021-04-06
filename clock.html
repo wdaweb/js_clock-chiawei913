@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/background.css">
+  <link rel="stylesheet" href="./css/clock.css">
+  <link rel="stylesheet" href="./css/num_clock.css">
+</head>
+<body>
+  <div id="galaxy">
+    <div class="bg"></div>
+    <div class="stars-back"></div>
+    <div class="stars-middle"></div>
+    <div class="stars-front"></div>
+    <div class="bg center"></div>
+  </div>
+  <div id="clock">
+    <div id="hour"></div>
+    <div id="minute"></div>
+    <div id="second"></div>
+  </div>
+  <div id="num_clock">
+    <p class="date" id="date"></p>
+    <p class="time" id="time"></p>
+  </div>
+  <script>
+    let week = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+    const hour = document.getElementById('hour');
+    const minute = document.getElementById('minute');
+    const second = document.getElementById('second');
+    const date=document.getElementById('date');
+    const time=document.getElementById('time');
+
+    const update = () => {
+      const now = new Date()
+      hour.style.transform = `rotate(${now.getHours()*30+ 0.5*now.getMinutes()-90}deg)`
+      minute.style.transform = `rotate(${now.getMinutes()*6+now.getSeconds()/10-90}deg)`
+      second.style.transform = `rotate(${now.getSeconds()*6-90}deg)`
+      date.innerText=zeroPadding(now.getFullYear(), 4) + '-' + zeroPadding(now.getMonth()+1, 2) + '-' + zeroPadding(now.getDate(), 2) + ' ' + week[now.getDay()];
+      time.innerText=zeroPadding(now.getHours(), 2) + ':' + zeroPadding(now.getMinutes(), 2) + ':' + zeroPadding(now.getSeconds(), 2);
+    }
+    setInterval(update, 1000)
+    update()
+
+    function zeroPadding(num, digit) {
+      var zero = '';
+      for(var i = 0; i < digit; i++) {
+        zero += '0';
+      }
+      return (zero + num).slice(-digit);
+    }
+  </script>
+</body>
+</html>

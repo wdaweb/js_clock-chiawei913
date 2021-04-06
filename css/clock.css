@@ -1,0 +1,48 @@
+#clock {
+  width: 400px;
+  height: 400px;
+  /*background: blue;*/
+  background: url("./image/out2.png") no-repeat center center;
+  /*border-radius: 50%;*/
+  filter: (
+    drop-shadow 0 0 20px rgba(10, 175, 230, 1),
+    0 0 20px rgba(10, 175, 230, 0)
+  );
+  margin: auto;
+  position: relative;
+}
+#hour {
+  width: 15%;
+  height: 4px;
+  border-radius: 5px;
+  background: rgb(177, 235, 177);
+  /*background: url('../image/short.png') no-repeat center center;*/
+  position: absolute;
+  top: calc(50% - 2px);
+  left: 50%;
+  transform-origin: left center;
+  box-shadow: 0 0 20px rgba(10, 175, 230, 1), 0 0 20px rgba(10, 175, 230, 0);
+}
+#minute {
+  width: 25%;
+  height: 4px;
+  border-radius: 5px;
+  background: rgb(230, 191, 120);
+  /*background: url('../image/long.png') repeat-x center center;*/
+  position: absolute;
+  top: calc(50% - 2px);
+  left: 50%;
+  transform-origin: left center;
+  box-shadow: 0 0 20px rgba(10, 175, 230, 1), 0 0 20px rgba(10, 175, 230, 0);
+}
+#second {
+  width: 30%;
+  height: 4px;
+  border-radius: 5px;
+  background: pink;
+  position: absolute;
+  top: calc(50% - 2px);
+  left: 50%;
+  transform-origin: left center;
+  box-shadow: 0 0 20px rgba(10, 175, 230, 1), 0 0 20px rgba(10, 175, 230, 0);
+}
